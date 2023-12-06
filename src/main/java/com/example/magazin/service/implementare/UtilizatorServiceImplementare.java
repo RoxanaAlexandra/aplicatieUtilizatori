@@ -1,6 +1,7 @@
 package com.example.magazin.service.implementare;
 
 import com.example.magazin.obiecte.Utilizator;
+import com.example.magazin.obiecte.dto.UtilizatorDTO;
 import com.example.magazin.repository.UtilizatorRepository;
 import com.example.magazin.service.UtilizatorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,12 @@ public class UtilizatorServiceImplementare implements UtilizatorService {
     }
 
     @Override
-    public void introducereaUnuiUser(String nume, String prenume, String email, int varsta) {
+    public void introducereaUnuiUser(UtilizatorDTO utilizatorDTO) {
         Utilizator utilizator = new Utilizator();
-        utilizator.setNume(nume);
-        utilizator.setPrenume(prenume);
-        utilizator.setEmail(email);
-        utilizator.setVarsta(varsta);
+        utilizator.setNume(utilizatorDTO.getNume());
+        utilizator.setPrenume(utilizatorDTO.getPrenume());
+        utilizator.setEmail(utilizatorDTO.getEmail());
+        utilizator.setVarsta(utilizatorDTO.getVarsta());
         utilizatorRepository.save(utilizator);
 
     }

@@ -2,6 +2,7 @@ package com.example.magazin.service;
 
 import com.example.magazin.obiecte.Utilizator;
 
+import com.example.magazin.obiecte.dto.UtilizatorDTO;
 import java.util.List;
 
 public interface UtilizatorService {
@@ -9,7 +10,7 @@ public interface UtilizatorService {
 
     List<Utilizator> afisareTuturorUseri();
 
-    void introducereaUnuiUser(String nume, String prenume, String email, int varsta);
+    void introducereaUnuiUser(UtilizatorDTO utilizator);
 
     void deleteUtilizator(int id);
     void modificareNumeDupaId(int id, String nume);

@@ -1,6 +1,7 @@
 package com.example.magazin.controler;
 
 import com.example.magazin.obiecte.Utilizator;
+import com.example.magazin.obiecte.dto.UtilizatorDTO;
 import com.example.magazin.service.UtilizatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,9 +26,8 @@ public class UtilizatorController {
     }
 
     @PostMapping
-    public void introducereaUnuiUser(@RequestParam String nume, @RequestParam String prenume,
-                                     @RequestParam String email, @RequestParam int varsta) {
-        utilizatorService.introducereaUnuiUser(nume, prenume, email, varsta);
+    public void introducereaUnuiUser(@RequestBody UtilizatorDTO utilizator) {
+        utilizatorService.introducereaUnuiUser(utilizator);
     }
 
     @DeleteMapping("/{id}")

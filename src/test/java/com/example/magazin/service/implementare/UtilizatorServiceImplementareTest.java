@@ -1,6 +1,7 @@
 package com.example.magazin.service.implementare;
 
 import com.example.magazin.obiecte.Utilizator;
+import com.example.magazin.obiecte.dto.UtilizatorDTO;
 import com.example.magazin.repository.UtilizatorRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -62,9 +63,10 @@ class UtilizatorServiceImplementareTest {
         // Mock data
         Utilizator mockUtilizator = new Utilizator();
         when(utilizatorRepository.save(any(Utilizator.class))).thenReturn(mockUtilizator);
+        UtilizatorDTO utilizatorDTO = new UtilizatorDTO("Roxana", "Szabo", "email.email@yahoo.com", 98);
 
         // Test
-        utilizatorService.introducereaUnuiUser("Roxana", "Szabo", "email.email@yahoo.com", 98);
+        utilizatorService.introducereaUnuiUser(utilizatorDTO);
 
         // Verify
         verify(utilizatorRepository, times(1)).save(any(Utilizator.class));
